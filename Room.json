@@ -1,0 +1,75 @@
+{
+    "@id": "dtmi:cmdx:test:Room;1",
+    "@type": "Interface",
+    "displayName": "Room",
+    "@context": "dtmi:dtdl:context;2",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "name",
+            "schema": "string"
+        },
+        {
+            "@type": "Property",
+            "name": "type",
+            "schema": {
+                "@type": "Enum",
+                "valueSchema": "integer",
+                "enumValues": [
+                    {
+                        "name": "lectureRoom",
+                        "displayName": "lectureRoom",
+                        "enumValue": 1
+                    },
+                    {
+                        "name": "office",
+                        "displayName": "office",
+                        "enumValue": 2
+                    },
+                    {
+                        "name": "studentRoom",
+                        "displayName": "studentRoom",
+                        "enumValue": 3
+                    },
+                    {
+                        "name": "workshop",
+                        "displayName": "workshop",
+                        "enumValue": 4
+                    },
+                    {
+                        "name": "toilet",
+                        "displayName": "toilet",
+                        "enumValue": 5
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "Property",
+            "name": "capacity",
+            "schema": "integer"
+        },
+        {
+            "@type": "Property",
+            "name": "occupied",
+            "schema": "integer"
+        },
+        {
+            "@type": "Property",
+            "name": "area",
+            "schema": "float"
+        },
+        {
+            "@type": "Relationship",
+            "name": "contains",
+            "displayName": "contains",
+            "target": "dtmi:cmdx:test:Screen;1"
+        },
+        {
+            "@type": "Relationship",
+            "name": "contains",
+            "displayName": "contains",
+            "target": "dtmi:cmdx:test:Seats;1"
+        }
+    ]
+}

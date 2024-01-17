@@ -1,0 +1,36 @@
+{
+  "@id": "dtmi:cmdx:test:Building;1",
+  "@type": "Interface",
+  "displayName": "Building",
+  "@context": "dtmi:dtdl:context;2",
+  "contents": [
+    {
+        "@type": "Property",
+        "name": "name",
+        "schema": "string"
+    },
+    {
+        "@type": "Property",
+        "name": "floorInfo",
+        "schema": {
+            "@type": "Object",
+            "fields": [
+                {
+                    "name": "maxFloorNumber",
+                    "schema": "integer"
+                },
+                {
+                    "name": "minFloorNumber",
+                    "schema": "integer"
+                }
+            ]
+        }
+    },
+    {
+      "@type": "Relationship",
+      "name": "contains",
+      "displayName": "contains",
+      "target": "dtmi:cmdx:test:Floor;1"
+    }
+  ]
+}

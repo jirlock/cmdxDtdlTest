@@ -1,0 +1,19 @@
+{
+    "@id": "dtmi:cmdx:test:Floor;1",
+    "@type": "Interface",
+    "displayName": "Floor",
+    "@context": "dtmi:dtdl:context;2",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "floorNumber",
+            "schema": "integer"
+        },
+        {
+            "@type": "Relationship",
+            "name": "contains",
+            "displayName": "contains",
+            "target": "dtmi:cmdx:test:Room;1"
+        }
+    ]
+}
