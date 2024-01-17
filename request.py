@@ -1,5 +1,5 @@
 from azure.identity import DefaultAzureCredential
-from azure.mgmt.digitaltwins import AzureDigitalTwinsManagementClient
+#from azure.mgmt.digitaltwins import AzureDigitalTwinsManagementClient
 from azure.digitaltwins.core import DigitalTwinsClient
 import os
 import requests
@@ -17,18 +17,17 @@ url = "https://15LectureRoom.api.jpe.digitaltwins.azure.net"
 credential = DefaultAzureCredential()
 client = DigitalTwinsClient(url, credential)
 
-#get_twin = client.get_digital_twin("Seats")
-#print (get_twin)
+get_twin = client.get_digital_twin("Seats")
+print (get_twin)
 
-component_name = "Occupied"
 patch = [
     {
         "op": "replace",
         "path": "/Occupied",
-        "value": 120
+        "value": 40
     }
 ]
 
-#client.update_component("Seats", component_name, patch)
-
 client.update_digital_twin("Seats", patch)
+
+print(client.get_digital_twin("Seats"))
