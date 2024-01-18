@@ -13,15 +13,12 @@ client = DigitalTwinsClient(url, credential)
 patch = [
     {
         "op": "add",
-        "path": "/floorInfo",
-        "value": {
-            "maxFloorNumber": 5,
-            "minFloorNumber": -1
-        }
+        "path": "/type",
+        "value": 4
     }
 ]
 
-twinname = "Eng1"
+twinname = "ArchitectureWorkshop"
 
 client.update_digital_twin(twinname, patch)
 
