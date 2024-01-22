@@ -10,30 +10,23 @@ new_comp = {
     "@id": "dtmi:mycomp:LR15_Temperature_Sensor;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;3",
-    #"extends": "dtmi:org:brickschema:schema:Brick:Temperature_Sensor;1",
     "contents": [
         {
             "@type": "Property",
-            "name": "LR15_IRSensor_Telemetries",
+            "name": "time",
+            "schema": "long"
+        },
+        {
+            "@type": "Property",
+            "name": "temperature",
+            "schema": "float"
+        },
+        {
+            "@type": "Property",
+            "name": "arrTemperature",
             "schema": {
-                "@type": "Object",
-                "fields": [
-                    {
-                        "name": "time",
-                        "schema": "long"
-                    },
-                    {
-                        "name": "temp",
-                        "schema": "float"
-                    },
-                    {
-                        "name": "arrTemp",
-                        "schema": {
-                            "@type": "Array",
-                            "elementSchema": "float"
-                        }
-                    }
-                ]
+                "@type": "Array",
+                "elementSchema": "float"
             }
         }
     ]
@@ -53,25 +46,7 @@ new_model = {
     ]
 }
 
-tmp_model = {
-  "@context": "dtmi:dtdl:context;3",
-  "@id": "dtmi:com:example:Thermostat;1",
-  "@type": "Interface",
-  "displayName": "Thermostat",
-  "contents": [
-    {
-      "@type": "Telemetry",
-      "name": "temp",
-      "schema": "double"
-    },
-    {
-      "@type": "Property",
-      "name": "setPointTemp",
-      "writable": True,
-      "schema": "double"
-    }
-  ]
-}
-
-model = client.create_models([new_model])
+#client.delete_model("dtmi:mymodel:LR15_Temperature_Sensor;1")
+#client.delete_model("dtmi:mycomp:LR15_Temperature_Sensor;1")
+model = client.create_models([new_comp, new_model])
 print(model)

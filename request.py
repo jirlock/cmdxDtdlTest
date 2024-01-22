@@ -13,10 +13,8 @@ client = DigitalTwinsClient(url, credential)
 patch = [
     {
         "op": "add",
-        "path": "/LR15_IRSensor_Telemetries",
-        "value": {
-            "arrTemp": [12.5, 16.5, 12.3, 15.5, 18.5, 13.3]
-        }
+        "path": "/arrTemperature",
+        "value": [12.5, 16.5, 12.3, 15.5, 18.5, 13.3]
     }
 ]
 
