@@ -35,6 +35,6 @@ mqtt_client = mylib.connect_mqtt(mqtt_client_id, mqtt_broker, mqtt_port)
 if __name__ == '__main__':
     for name in sensorNames:
         topic = name+'/01/array02'
-        mylib.set_on_message_ir_sensor(azure_client, mqtt_client, topic)
+        mylib.set_on_message_ir_sensor_azure(azure_client, mqtt_client, topic)
         mqtt_client.subscribe(topic)
     mqtt_client.loop_forever()
